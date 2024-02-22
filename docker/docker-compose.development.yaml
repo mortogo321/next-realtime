@@ -1,0 +1,18 @@
+name: next-app
+
+services:
+  app:
+    container_name: app
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile.development
+    env_file:
+      - ../.env.development
+    ports:
+      - 3000:3000
+    networks:
+      - next-app
+
+networks:
+  next-app:
+    name: next-app
